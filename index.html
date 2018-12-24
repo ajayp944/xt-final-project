@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Site</title>
+
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carousel.css">
+</head>
+
+<body>
+
+
+    <header>
+        
+    </header>
+
+
+    <!--Slider Start-->
+
+
+
+    <div class="divider" aria-hidden="true">&nbsp;</div>
+
+    <div class="carousel" role="tabpanel" aria-label="Offer banners">
+        <div class="carousel__items carousel__items--fade">
+            <img src="code/static/images/offers/offer1.jpg" class="carousel__items--img" alt="Independence day sale offer 25% off on hair care product" />
+        </div>
+        <div class="carousel__items carousel__items--fade">
+            <img src="code/static/images/offers/offer2.jpg" class="carousel__items--img" alt="Independence day sale offer upto 120 rupees off on surf" />
+        </div>
+        <div class="carousel__items carousel__items--fade">
+            <img src="code/static/images/offers/offer3.jpg" class="carousel__items--img" alt="Independence day sale room cleaner products start from 99 rupees only" />
+        </div>
+        <div class="carousel__items carousel__items--fade">
+            <img src="code/static/images/offers/offer4.jpg" class="carousel__items--img" alt="Independence day sale daily use products start from 99 rupees only" />
+        </div>
+        <a class="carousel__prev" onclick="plusSlides(-1)" role="button" aria-label="Click to see for new offer">&#10094;</a>
+        <a class="carousel__next" onclick="plusSlides(1)" role="button" aria-label="Click to see for previous offer">&#10095;</a>
+
+    </div>
+
+    <div class="carousel__dots">
+        <span class="carousel__dots--dot" onclick="currentSlide(1)"></span>
+        <span class="carousel__dots--dot" onclick="currentSlide(2)"></span>
+        <span class="carousel__dots--dot" onclick="currentSlide(3)"></span>
+        <span class="carousel__dots--dot" onclick="currentSlide(4)"></span>
+    </div>
+
+
+    <!--Slider End-->
+
+    <div class="divider">&nbsp;</div>
+    <script src="carousel.js"></script>
+
+</body>
+
+</html>
