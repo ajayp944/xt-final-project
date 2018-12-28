@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Site</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/carousel.css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+        <img src="./static/images/logo.png" alt="Sabka bazaar logo" class="header__logo">
+
+        <nav class="header-menu">
+            <ul class="header-menu__items">
+                <li class="header-menu__items--list">
+                    <a href="javascript:void(0);">Home</a>
+                </li>
+                <li class="header-menu__items--list">
+                    <a href="javascript:void(0);">Product</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="header-user">
+            <ul class="header-user__items">
+                <li class="header-user__items--list header-user__items--sign">SignIn</li>
+                <li class="header-user__items--list header-user__items--sign">Registration</li>
+
+            </ul>
+            <div class="header-user__items--cart">
+                <img src="./static/images/cart.svg" alt="Cart" class="cart-logo">
+                <span class=cart-count>0 Cart</span>
+            </div>
+
+        </nav>
+    </header>
+
+    <div class="header__divider"></div>
+
+    <div class="container">
+
+        <div class="carousel" role="tabpanel" aria-label="Offer banners">
+            <!-- <div class="carousel__items carousel__items--fade">
+                <img src="./code/static/images/offers/offer1.jpg" class="carousel__items--img" alt="Independence day sale offer 25% off on hair care product" />
+            </div>
+            <div class="carousel__items carousel__items--fade">
+                <img src="./code/static/images/offers/offer2.jpg" class="carousel__items--img" alt="Independence day sale offer upto 120 rupees off on surf" />
+            </div>
+            <div class="carousel__items carousel__items--fade">
+                <img src="./code/static/images/offers/offer3.jpg" class="carousel__items--img" alt="Independence day sale room cleaner products start from 99 rupees only" />
+            </div>
+            <div class="carousel__items carousel__items--fade">
+                <img src="./code/static/images/offers/offer4.jpg" class="carousel__items--img" alt="Independence day sale daily use products start from 99 rupees only" />
+            </div> -->
+            <a class="carousel__prev" onclick="plusSlides(-1)" role="button" aria-label="Click to see for new offer">Prev</a>
+            <a class="carousel__next" onclick="plusSlides(1)" role="button" aria-label="Click to see for previous offer">Next</a>
+
+        </div>
+
+        <div class="carousel__dots">
+            <!-- <span class="carousel__dots--dot" onclick="currentSlide(1)"></span>
+            <span class="carousel__dots--dot" onclick="currentSlide(2)"></span>
+            <span class="carousel__dots--dot" onclick="currentSlide(3)"></span>
+            <span class="carousel__dots--dot" onclick="currentSlide(4)"></span> -->
+        </div>
+
+
+        <!--Slider End-->
+
+        <div class="divider" aria-hidden="true">&nbsp;</div>
+        <div class="category-container">
+            <!-- <div class="category">
+                <div class="category__box">
+                    <div class="category__box--title">
+                        Fruits & Vegetables
+                    </div>
+                    <p class="category__box--description">
+                        A variety of fresh fruits and Vegetables
+                    </p>
+                    <div>
+                        <a class="category__box--button" href="#">Explore fruit-and-veg</a>
+                    </div>
+                </div>
+                <div class="category__box">
+                    <img class="category__img" src="./code/static/images/category/fruits.png" alt="fruits image">
+                </div>
+            </div>
+            <div class="divider" aria-hidden="true">&nbsp;</div>
+        </div> -->
+    </div>
+
+
+    <footer class="footer">
+        <p class="footer__content">
+            Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
+        </p>
+    </footer>
+
+
+
+
+    <script src="js/carousel.js"></script>
+
+</body>
+
+</html>
