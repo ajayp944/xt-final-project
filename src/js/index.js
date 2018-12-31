@@ -56,11 +56,14 @@ const controlCategory = async () => {
 // On window load get data
 window.addEventListener('load', () => {
 
-    //Carousel
-    controlCarousel();
+    if (window.location.pathname == '/index.html' || window.location.pathname == '/') {
 
-    //Category
-    controlCategory();
+        //Carousel
+        controlCarousel();
+
+        //Category
+        controlCategory();
+    }
 });
 
 

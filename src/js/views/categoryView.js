@@ -13,7 +13,7 @@ export const renderResults = (category) => {
 // Render Category in view port
 const renderCategory = (key, category) => {
     let markup;
-    console.log((key + 2) % 2);
+    
     if ((key + 2) % 2) {
         markup = `<div class="category">
             <div class="category__box">
@@ -24,7 +24,7 @@ const renderCategory = (key, category) => {
                     ${category.description}
                 </p>
                 <div>
-                    <a class="category__box--button" href="#${category.key}">Explore fruit-and-veg</a>
+                    <a class="btn btn--pink category__box--button" href="product.html#${category.id}">Explore fruit-and-veg</a>
                 </div>
             </div>
             <div class="category__box">
@@ -45,11 +45,39 @@ const renderCategory = (key, category) => {
                     ${category.description}
                 </p>
                 <div>
-                    <a class="category__box--button" href="#${category.key}">Explore fruit-and-veg</a>
+                    <a class="btn btn--pink category__box--button" href="product.html#${category.id}">Explore ${category.name}</a>
                 </div>
             </div>
         </div>
         <div class="divider" aria-hidden="true">&nbsp;</div>`;
     }
     elements.categoryContainer.insertAdjacentHTML('beforeend', markup);
+};
+
+
+export const renderResultProductCategory = (category) => {
+
+    category.forEach((value) => {
+        if (value.enabled) {
+            renderResultProductCategoryView(value);
+            
+        }
+    });
+};
+
+
+
+// Render Category in view port
+const renderResultProductCategoryView = (category) => {
+
+    console.log('category');
+    let markup, markup1;
+
+    markup = `<option value="${category.key}">${category.name}</option>`;
+    markup1 = `<li class="m-menu__item  m-menu__item--active">
+            <a href="#${category.id}" class="m-menu__link">${category.name}</a>
+        </li>`;
+
+    elements.sMenuNav.insertAdjacentHTML('beforeend', markup);
+    elements.mMenuNav.insertAdjacentHTML('beforeend', markup1);
 };
