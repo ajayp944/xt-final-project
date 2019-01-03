@@ -109,7 +109,7 @@ elements.productsContainer.addEventListener('click', e => {
 
         const prId = e.target.closest('.buy-now').dataset.prid;
 
-        controlProducAddToCart(prId);
+        controlProductCart(prId, 'add');
     }
 });
 
@@ -128,7 +128,7 @@ const controlCartItems = () => {
 
 // Prodcut add To Cart
 
-const controlProducAddToCart = async (prId) => {
+const controlProductCart = async (prId, type) => {
 
     try {
 
@@ -154,7 +154,8 @@ const controlProducAddToCart = async (prId) => {
             product.price,
             product.imageURL,
             product.stock,
-            1
+            1,
+            type
         );
 
         pState.cart.getNumcartItem();
@@ -195,4 +196,24 @@ const ClosePopup = () => {
     document.querySelector('.cart__overlay').style.display = 'none';
     document.querySelector('.cart__window').style.display = 'none';
 };
+
+
+elements.cartItems.addEventListener('click', e => {
+
+    if (e.target.matches('.removeQty')) {
+        const prId = e.target.closest('.removeQty').dataset.cartid;
+        let qty = parseInt(e.target.nextElementSibling.value);
+        e.target.nextElementSibling.value = parseInt(qty) - 1;
+        controlProductCart(prId, 'remove');
+        cartItems();
+    }
+    if (e.target.matches('.addQty')) {
+        const prId = e.target.closest('.addQty').dataset.cartid;
+        let qty = parseInt(e.target.nextElementSibling.value);
+        e.target.previousElementSibling.value = qty + 1;
+        controlProductCart(prId, 'add');
+        cartItems();
+    }
+});
+
 

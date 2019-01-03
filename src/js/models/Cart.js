@@ -7,18 +7,27 @@ export default class Cart {
     }
 
 
-    addToCart(id, name, price, imageURL, stock, count) {
+    addToCart(id, name, price, imageURL, stock, count, type = 'add') {
         const cartItem = { id, name, price, imageURL, stock, count };
 
         if (this.isCart(id)) {
 
             const index = this.cartItems.findIndex(el => el.id === id);
 
-            if (stock < this.cartItems[index].count) {
+            if (stock <= this.cartItems[index].count && type == 'add') {
                 alert(`You can maximum add ${stock} item in your cart`);
                 return false;
             }
-            this.cartItems[index].count += 1;
+            if (type === 'remove') {
+                this.cartItems[index].count -= 1;
+            } else {
+                this.cartItems[index].count += 1;
+            }
+            if (this.cartItems[index].count == 0) {
+                this.cartItems.splice(index, 1);
+                console.log(index);
+                console.log(this.cartItems);
+            }
         } else {
             this.cartItems.push(cartItem);
         }
@@ -61,6 +70,7 @@ export default class Cart {
     persistData() {
         localStorage.setItem('cartItem', JSON.stringify(this.cartItems));
         localStorage.setItem('cartCount', this.cartCount);
+        this.readStorage();
     }
 
     readStorage() {

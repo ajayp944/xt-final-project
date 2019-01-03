@@ -1,5 +1,5 @@
 screenshots
 shopping-site-coding-exercise.doc
-dist/code/node_modules
-dist/code/static
+server/node_modules
+server/static
 node_modules
