@@ -13,7 +13,7 @@ export const renderResults = (category) => {
 // Render Category in view port
 const renderCategory = (key, category) => {
     let markup;
-    
+
     if ((key + 2) % 2) {
         markup = `<div class="category">
             <div class="category__box">
@@ -60,22 +60,31 @@ export const renderResultProductCategory = (category) => {
     category.forEach((value) => {
         if (value.enabled) {
             renderResultProductCategoryView(value);
-            
+
         }
     });
 };
 
 
+export const highlightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll('.m-menu__item'));
+    resultsArr.forEach(el => {
+        el.classList.remove('m-menu__item--active');
+    });
+    if (id) {
+        document.querySelector(`.m-menu__link[href*="#${id}"]`).parentElement.classList.add('m-menu__item--active');
+    }
+};
+
 
 // Render Category in view port
 const renderResultProductCategoryView = (category) => {
 
-    console.log('category');
     let markup, markup1;
 
-    markup = `<option value="${category.key}">${category.name}</option>`;
-    markup1 = `<li class="m-menu__item  m-menu__item--active">
-            <a href="#${category.id}" class="m-menu__link">${category.name}</a>
+    markup = `<option value="${category.id}"  data-phash="${category.id}">${category.name}</option>`;
+    markup1 = `<li class="m-menu__item  ">
+            <a href="#${category.id}" data-phash="${category.id}" class="m-menu__link">${category.name}</a>
         </li>`;
 
     elements.sMenuNav.insertAdjacentHTML('beforeend', markup);

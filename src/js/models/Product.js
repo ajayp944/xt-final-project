@@ -14,4 +14,14 @@ export default class Product {
             alert(error);
         }
     }
+
+    
+    async addToCart() {
+        try {
+            const res = await axios.post(`${proxy}${apiurl}addToCart`);
+            this.result = res.data;
+        } catch (error) {
+            alert(error);
+        }
+    }
 }

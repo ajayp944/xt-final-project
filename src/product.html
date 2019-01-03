@@ -38,7 +38,7 @@
       </ul>
       <div class="header-user__items--cart">
         <img src="./static/images/cart.svg" alt="Cart" class="cart-logo">
-        <span class=cart-count>0 Cart</span>
+        <span class="cart-count">0 </span> Cart
       </div>
     </nav>
   </header>
@@ -50,7 +50,7 @@
     </aside>
     <div class="product-page">
       <aside class="m-menu">
-        <ul class="m-menu__nav ">
+        <ul class="m-menu__nav">
           <!-- <li class="m-menu__item  m-menu__item--active">
             <a href="" class="m-menu__link">Fruits & Vegetables</a>
           </li>
@@ -105,11 +105,54 @@
     </div>
   </div>
 
+
+
   <footer class="footer">
     <p class="footer__content">
       Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
     </p>
   </footer>
+  <div class="cart__overlay">
+    <div class="cart__window">
+      <div class="cart-container">
+        <div class="cart-header">
+          <div class="cart-header__title">
+            My Cart
+            ( <span class="cart-count"></span> Items )
+          </div>
+          <div class="close__cart">
+            x
+          </div>
+        </div>
+        <div class="cart-items"></div>
+      </div>
+      <div class="cart__footer">
+        <div class="cart__footer--img" class="">
+          <img src="./static/images/lowest-price.png" alt="Footer Logo">
+        </div>
+        <div class="cart__footer--content">
+          <p>You can find it cheaper any where.</p>
+        </div>
+      </div>
+      <div class="checkout">
+        <div class="checkout-box">
+          <p class="checkout-box__description">
+            Promo code can be applied on payment page
+          </p>
+          <button class="btn btn--pink btn-cart">
+            <span>
+              Proceed to Checkout
+            </span>
+            <span class="checkout__totalPrice">
+              Rs. 187 &nbsp; &nbsp; >
+            </span>
+
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </body>
 
 </html>

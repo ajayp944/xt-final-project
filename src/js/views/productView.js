@@ -35,7 +35,7 @@ export const limitRProductDescription = (title, limit = 100) => {
 const renderCategory = (product, filterKey) => {
     let markup;
 
-    if (filterKey && filterKey !==product.category) {
+    if (filterKey && filterKey !== product.category) {
         return false;
     }
 
@@ -49,32 +49,29 @@ const renderCategory = (product, filterKey) => {
                 </div>
                 <div class="p-box__middle--box">
                     <p class="p-box__description">
-                        ${limitRProductDescription(product.description, 140)}
+                        ${limitRProductDescription(product.description, 120)}
                     </p>
                     <div class="p-box__footer--mobile">
-                    <button class="btn btn--pink">Buy Now &copy; MRP Rs. ${product.price}</button>
+                    <button class="btn btn--pink buy-now" data-prid="${product.id}">Buy Now &copy; MRP Rs. ${product.price}</button>
                     </div>
                 </div>
                 </div>
                 <div class="p-box__footer">
                 <div class="p-box__footer--desktop">
                     <span>MRP Rs.${product.price}</span>
-                    <button class="btn btn--pink">Buy Now</button>
+                    <button class="btn btn--pink buy-now" data-prid="${product.id}">Buy Now</button>
                 </div>
                 <div class="p-box__footer--tablet">
-                    <button class="btn btn--pink">Buy Now &copy; MRP Rs.${product.price}</button>
+                    <button class="btn btn--pink buy-now" data-prid="${product.id}">Buy Now &copy; MRP Rs.${product.price}</button>
                 </div>
                 </div>
             </div>`;
 
     elements.productsContainer.insertAdjacentHTML('beforeend', markup);
-
-
-
-
 };
 
 
 export const clearResults = () => {
     elements.productsContainer.innerHTML = '';
 };
+
