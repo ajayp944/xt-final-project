@@ -30,10 +30,10 @@
     <nav class="header-user">
       <ul class="header-user__items">
         <li class="header-user__items--list header-user__items--sign">
-          <a href=""> SignIn</a>
+          <a href="signin.html"> Signin</a>
         </li>
         <li class="header-user__items--list header-user__items--sign">
-          <a href=""> Registration</a>
+          <a href="signup.html"> Registration</a>
         </li>
       </ul>
       <div class="header-user__items--cart">
@@ -46,72 +46,29 @@
   <div class="container">
 
     <aside>
-      <select name="category-list" id="category-list" class="s-menu"></select>
+      <select name="category-list" id="category-list" class="s-menu">
+        <!--Category display mobile-->
+      </select>
     </aside>
     <div class="product-page">
       <aside class="m-menu">
         <ul class="m-menu__nav">
-          <!-- <li class="m-menu__item  m-menu__item--active">
-            <a href="" class="m-menu__link">Fruits & Vegetables</a>
-          </li>
-          <li class="m-menu__item">
-            <a href="" class="m-menu__link"> Bakery Cakes and Dairy </a>
-          </li>
-          <li class="m-menu__item">
-            <a href="" class="m-menu__link">Bererage</a>
-          </li>
-          <li class="m-menu__item">
-            <a href="" class="m-menu__link">
-              Beuty
-            </a>
-          </li>
-          <li class="m-menu__item">
-            <a href="" class="m-menu__link">Baby Care</a>
-          </li> -->
+          <!--Category display desktop, tabelet-->
         </ul>
       </aside>
       <main class="products-container">
-        <!--
-        <div class="p-box">
-          <div class="p-box__title">
-            Fresho Kiwi - Green, 3pcs
-          </div>
-          <div class="p-box__middle">
-            <div class="p-box__middle--box">
-              <img class="p-box__img" src="./static/images/products/fruit-n-veg/kiwi-green.jpg" alt="Kiwi">
-            </div>
-            <div class="p-box__middle--box">
-              <p class="p-box__description">
-                Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi Kiwi
-              </p>
-              <div class="p-box__footer--mobile">
-                <button class="btn btn--pink">Buy Now &copy; MRP Rs.87</button>
-              </div>
-            </div>
-          </div>
-          <div class="p-box__footer">
-            <div class="p-box__footer--desktop">
-              <span>MRP Rs.87</span>
-              <button class="btn btn--pink">Buy Now</button>
-            </div>
-            <div class="p-box__footer--tablet">
-              <button class="btn btn--pink">Buy Now &copy; MRP Rs.87</button>
-            </div>
-          </div>
-        </div> -->
-
-
+        <!--Product display -->
       </main>
     </div>
   </div>
-
-
-
   <footer class="footer">
     <p class="footer__content">
       Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
     </p>
   </footer>
+
+  <!--Cart Start-->
+
   <div class="cart__overlay">
     <div class="cart__window">
       <div class="cart-container">
@@ -124,34 +81,17 @@
             x
           </div>
         </div>
-        <div class="cart-items"></div>
-      </div>
-      <div class="cart__footer">
-        <div class="cart__footer--img" class="">
-          <img src="./static/images/lowest-price.png" alt="Footer Logo">
+        <div class="cart-items">
+          <!--Cart Items-->
         </div>
-        <div class="cart__footer--content">
-          <p>You can find it cheaper any where.</p>
-        </div>
-      </div>
-      <div class="checkout">
-        <div class="checkout-box">
-          <p class="checkout-box__description">
-            Promo code can be applied on payment page
-          </p>
-          <button class="btn btn--pink btn-cart">
-            <span>
-              Proceed to Checkout
-            </span>
-            <span class="checkout__totalPrice">
-              Rs. 187 &nbsp; &nbsp; >
-            </span>
-          </button>
+        <div class="cart-empty">
+          <!--Cart Empty-->
         </div>
       </div>
     </div>
   </div>
-  </div>
+
+  <!--Cart End-->
 </body>
 
 </html>

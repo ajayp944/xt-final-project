@@ -25,8 +25,6 @@ export default class Cart {
             }
             if (this.cartItems[index].count == 0) {
                 this.cartItems.splice(index, 1);
-                console.log(index);
-                console.log(this.cartItems);
             }
         } else {
             this.cartItems.push(cartItem);
@@ -38,8 +36,14 @@ export default class Cart {
         const cartCount = this.cartItems.forEach((curr) => {
             tmpCartCount = tmpCartCount + curr.count;
         });
+        console.log(this.cartItems);
 
-        this.cartCount = parseInt(this.cartCount) + (tmpCartCount - localStorage.getItem('cartCount', this.cartCount));
+        console.log(tmpCartCount);
+        console.log(localStorage.getItem('cartCount'));
+
+        this.cartCount = parseInt(this.cartCount) + (tmpCartCount - localStorage.getItem('cartCount'));
+
+        console.log(this.cartCount);
 
         // Perist data in localStorage
         this.persistData();
@@ -59,9 +63,6 @@ export default class Cart {
         return this.cartItems.findIndex(el => el.id === id) !== -1;
     }
 
-    // getNumcartItem() {
-    //     return this.cartItems.length;
-    // }
 
     getNumcartItem() {
         return this.readStorage();
@@ -80,7 +81,7 @@ export default class Cart {
         if (storage) this.cartItems = storage;
 
         // Restoring cartCount from the localStorage
-        const cartCount = localStorage.getItem('cartCount', this.cartCount);
+        const cartCount = localStorage.getItem('cartCount');
         if (cartCount) this.cartCount = cartCount;
 
         const resultsArr = Array.from(elements.cartCountAll);

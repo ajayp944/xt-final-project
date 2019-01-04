@@ -5,6 +5,7 @@ import Category from './models/Category';
 import * as categoryView from './views/categoryView';
 
 import { elements } from './views/base';
+
 import Cart from './models/Cart';
 import * as cartView from './views/cartView';
 
@@ -36,7 +37,7 @@ const controlCategory = async () => {
 }
 
 /** 
- * Carousel CONTROLLER
+ * Product CONTROLLER
  */
 const controlProduct = async () => {
 
@@ -50,17 +51,14 @@ const controlProduct = async () => {
         // 2) Get Carousel lsit
         await pState.product.getResults();
 
+        pState.prductsArr = pState.product.result;
 
         // 3) Render results on UI
-        productView.renderResults(pState.product.result, filterKey);
+        productView.renderResults(pState.prductsArr, filterKey);
     } catch (err) {
         console.log(err);
-
     }
 }
-
-
-
 
 // On window load get data
 window.addEventListener('load', () => {
@@ -103,7 +101,8 @@ document.querySelector('#category-list').addEventListener('change', () => {
     location.hash = document.querySelector('#category-list').value;
 });
 
-// Handling recipe button clicks
+// Handling Product add button clicks
+
 elements.productsContainer.addEventListener('click', e => {
     if (e.target.matches('.buy-now')) {
 
@@ -124,9 +123,8 @@ const controlCartItems = () => {
 
 }
 
-
-
 // Prodcut add To Cart
+
 
 const controlProductCart = async (prId, type) => {
 
@@ -171,49 +169,7 @@ const controlProductCart = async (prId, type) => {
 
 //Cart
 
-elements.headerUserItemsCart.addEventListener('click', e => {
-    cartItems();
-    OpenPopup();
-});
-
-elements.closeCart.addEventListener('click', () => {
-    ClosePopup();
-});
-
-
 const cartItems = () => {
     cartView.clearCart();
     cartView.renderCartItems(pState.cart.cartItems);
 };
-
-
-const OpenPopup = () => {
-    document.querySelector('.cart__overlay').style.display = 'block';
-    document.querySelector('.cart__window').style.display = 'block';
-};
-
-const ClosePopup = () => {
-    document.querySelector('.cart__overlay').style.display = 'none';
-    document.querySelector('.cart__window').style.display = 'none';
-};
-
-
-elements.cartItems.addEventListener('click', e => {
-
-    if (e.target.matches('.removeQty')) {
-        const prId = e.target.closest('.removeQty').dataset.cartid;
-        let qty = parseInt(e.target.nextElementSibling.value);
-        e.target.nextElementSibling.value = parseInt(qty) - 1;
-        controlProductCart(prId, 'remove');
-        cartItems();
-    }
-    if (e.target.matches('.addQty')) {
-        const prId = e.target.closest('.addQty').dataset.cartid;
-        let qty = parseInt(e.target.nextElementSibling.value);
-        e.target.previousElementSibling.value = qty + 1;
-        controlProductCart(prId, 'add');
-        cartItems();
-    }
-});
-
-

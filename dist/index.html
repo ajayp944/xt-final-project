@@ -40,7 +40,7 @@
             </ul>
             <div class="header-user__items--cart">
                 <img src="./static/images/cart.svg" alt="Cart" class="cart-logo">
-                <span class=cart-count>0 Cart</span>
+                <span class="cart-count">0 </span> Cart
             </div>
         </nav>
     </header>
@@ -50,52 +50,19 @@
     <div class="container">
 
         <div class="carousel" role="tabpanel" aria-label="Offer banners">
-            <!-- <div class="carousel__items carousel__items--fade">
-                <img src="./code/static/images/offers/offer1.jpg" class="carousel__items--img" alt="Independence day sale offer 25% off on hair care product" />
-            </div>
-            <div class="carousel__items carousel__items--fade">
-                <img src="./code/static/images/offers/offer2.jpg" class="carousel__items--img" alt="Independence day sale offer upto 120 rupees off on surf" />
-            </div>
-            <div class="carousel__items carousel__items--fade">
-                <img src="./code/static/images/offers/offer3.jpg" class="carousel__items--img" alt="Independence day sale room cleaner products start from 99 rupees only" />
-            </div>
-            <div class="carousel__items carousel__items--fade">
-                <img src="./code/static/images/offers/offer4.jpg" class="carousel__items--img" alt="Independence day sale daily use products start from 99 rupees only" />
-            </div> -->
+            <!-- Carousel Images -->
             <a class="carousel__prev" onclick="plusSlides(-1)" role="button" aria-label="Click to see for new offer">Prev</a>
             <a class="carousel__next" onclick="plusSlides(1)" role="button" aria-label="Click to see for previous offer">Next</a>
 
         </div>
 
         <div class="carousel__dots">
-            <!-- <span class="carousel__dots--dot" onclick="currentSlide(1)"></span>
-            <span class="carousel__dots--dot" onclick="currentSlide(2)"></span>
-            <span class="carousel__dots--dot" onclick="currentSlide(3)"></span>
-            <span class="carousel__dots--dot" onclick="currentSlide(4)"></span> -->
+            <!-- dots -->
         </div>
-
-
-        <!--Slider End-->
 
         <div class="divider" aria-hidden="true">&nbsp;</div>
         <div class="category-container">
-            <!-- <div class="category">
-                <div class="category__box">
-                    <div class="category__box--title">
-                        Fruits & Vegetables
-                    </div>
-                    <p class="category__box--description">
-                        A variety of fresh fruits and Vegetables
-                    </p>
-                    <div>
-                        <a class="category__box--button" href="#">Explore fruit-and-veg</a>
-                    </div>
-                </div>
-                <div class="category__box">
-                    <img class="category__img" src="./code/static/images/category/fruits.png" alt="fruits image">
-                </div>
-            </div>
-            <div class="divider" aria-hidden="true">&nbsp;</div> -->
+            <!-- Display Category -->
         </div>
     </div>
 
@@ -106,11 +73,36 @@
         </p>
     </footer>
 
+    <!--Cart Start-->
+
+    <div class="cart__overlay">
+        <div class="cart__window">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <div class="cart-header__title">
+                        My Cart
+                        ( <span class="cart-count"></span> Items )
+                    </div>
+                    <div class="close__cart">
+                        x
+                    </div>
+                </div>
+                <div class="cart-items">
+                    <!--Cart Items-->
+                </div>
+                <div class="cart-empty">
+                    <!--Cart Empty-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Cart End-->
 
 
 
     <script src="js/carousel.js"></script>
 
-<script type="text/javascript" src="js/home.bundle.17077e202c41c0cce3de.js"></script></body>
+<script type="text/javascript" src="js/home.bundle.e966439da84aea70fff7.js"></script></body>
 
 </html>

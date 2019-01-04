@@ -11,5 +11,6 @@ export const elements = {
     headerUserItemsCart: document.querySelector('.header-user__items--cart'),
     closeCart: document.querySelector('.close__cart'),
     cartItems: document.querySelector ('.cart-items'),
-    checkoutTotalPrice: document.querySelector('.checkout__totalPrice')
+    checkoutTotalPrice: document.querySelector('.checkout__totalPrice'),
+    cartEmpty: document.querySelector('.cart-empty')
 };

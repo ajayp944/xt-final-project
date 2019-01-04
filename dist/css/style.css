@@ -90,13 +90,14 @@ ul {
 
 .header-user__items--sign {
 	padding-left: 20px;
+	padding-top: 5px;
 }
 
 .header-user__items--cart {
 	background-color: #F3F3F3;
 	text-align: center;
 	margin-top: 20px;
-	padding: 18px;
+	padding: 12px;
 	cursor: pointer;
 }
 
@@ -128,7 +129,7 @@ ul {
 .category__box {
 	flex-basis: 50%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-direction: column;
 	align-items: center;
 	padding: 0 3px;
@@ -520,6 +521,11 @@ ul {
 	margin-bottom: 10px;
 }
 
+.btn-shopping {
+	width: 98%;
+	border: 2px;
+}
+
 .btn-cart {
 	width: 100%;
 	border-radius: 2px;
@@ -527,6 +533,90 @@ ul {
 	justify-content: space-between;
 	font-weight: 400;
 	padding: 10px;
+}
+
+.cart-empty {
+	background: #fff;
+}
+
+.cart-empty__box {
+	height: 71vh;
+	text-align: center;
+}
+
+.cart-empty__content {
+	padding-top: 40%;
+}
+
+/******************************************
+*	Signup and Signin
+*******************************************/
+
+.login-page {
+	display: flex;
+	flex-wrap: wrap;
+	width: 60%;
+	margin: 0 auto;
+	justify-content: space-around;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.login__form {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	flex-basis: 45%;
+}
+.login-heading__description{
+	font-size: 120%;
+}
+.form__box {
+	position: relative;
+	margin-bottom: 0;
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+}
+
+
+.form__box--label {
+	font-size: 130%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.form__box--input {
+	z-index: 1;
+	width: 100%;
+	position: relative;
+	border: 0;
+	font-size: 130%;
+	padding: 10px 0;
+	background: 0 0;
+}
+
+.form__box--input:focus {
+	outline: none;
+}
+
+.form__box--input:valid~.form__box--label,
+.form__box--input:focus~.form__box--label {
+	font-size: .85em;
+	top: 20%;
+	color: #18bc9c;
+}
+
+.form__box--error {
+	display: none;
 }
 
 /* Small phones to small tablets: from 481px to 767px */

@@ -2,8 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
-        home: ['babel-polyfill', './src/js/home.js'],
-        product: ['babel-polyfill', './src/js/product.js']
+        home: ['babel-polyfill', './src/js/home.js', './src/js/cart.js'],
+        cart: ['babel-polyfill', './src/js/cart.js'],
+        product: ['babel-polyfill', './src/js/product.js', './src/js/cart.js']
     },//['babel-polyfill', './src/js/index.js', './src/js/product.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -23,6 +24,18 @@ module.exports = {
             filename: 'product.html',
             template: './src/product.html',
             chunks: ['product']
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: 'signin.html',
+            template: './src/signin.html',
+            chunks: ['cart']
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: 'signup.html',
+            template: './src/signup.html',
+            chunks: ['cart']
         })
     ],
     module: {

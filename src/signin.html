@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <meta name="keywords" content="Sabka bazaar, online shopping, grocery">
-    <meta name="description" content="Sabka bazaar online shopping for grocery">
-    <title>Sabka Bazaar</title>
+    <meta name="keywords" content="Sabka bazaar,login, signin, online shopping, grocery">
+    <meta name="description" content="Lgoin page for Sabka bazaar product online shopping for grocery">
+    <title>Login Sabka Bazaar Product</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/carousel.css">
 </head>
 
 <body>
@@ -32,7 +30,7 @@
         <nav class="header-user">
             <ul class="header-user__items">
                 <li class="header-user__items--list header-user__items--sign">
-                    <a href="signin.html"> SignIn</a>
+                    <a href="signin.html"> Signin</a>
                 </li>
                 <li class="header-user__items--list header-user__items--sign">
                     <a href="signup.html"> Registration</a>
@@ -44,29 +42,43 @@
             </div>
         </nav>
     </header>
-
     <div class="header__divider"></div>
-
     <div class="container">
 
-        <div class="carousel" role="tabpanel" aria-label="Offer banners">
-            <!-- Carousel Images -->
-            <a class="carousel__prev" onclick="plusSlides(-1)" role="button" aria-label="Click to see for new offer">Prev</a>
-            <a class="carousel__next" onclick="plusSlides(1)" role="button" aria-label="Click to see for previous offer">Next</a>
-
-        </div>
-
-        <div class="carousel__dots">
-            <!-- dots -->
-        </div>
-
-        <div class="divider" aria-hidden="true">&nbsp;</div>
-        <div class="category-container">
-            <!-- Display Category -->
+        <div class="login-page">
+            <div class="login-heading">
+                <h2 class="login-heading__title">Signin</h2>
+                <p class="login-heading__description">
+                    We don't share your personal details with anyone
+                </p>
+            </div>
+            <form action="" method="post" class="login__form">
+                <div class="form__box">
+                    <input type="email" name="email" id="email" required aria-required="true" aria-invalid="true"
+                        aria-describedby="email_error" class="form__box--input">
+                    <label for="email" class="form__box--label">Email address</label>
+                    <div id="email_error" class="form__box--error">
+                        Please provide a valid email address.
+                    </div>
+                </div>
+                <div class="form__box">
+                    <input type="password" name="password" id="password" required aria-required="true" aria-invalid="true"
+                        aria-describedby="password-rules" class="form__box--input">
+                    <label for="password" class="form__box--label">Password</label>
+                    <div id="password-rules" class="form__box--error">
+                        Your password must:
+                        <ul>
+                            <li>be at least 8 characters in length</li>
+                            <li>have both upper- and lowercase letters</li>
+                            <li>contain at least 2 numerals</li>
+                            <li>contain at least 1 special character (& % $ # @ ? -)</li>
+                        </ul>
+                    </div>
+                </div>
+                <input class="btn btn--pink" type="submit" value="Submit" />
+            </form>
         </div>
     </div>
-
-
     <footer class="footer">
         <p class="footer__content">
             Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
@@ -99,9 +111,6 @@
 
     <!--Cart End-->
 
-
-
-    <script src="js/carousel.js"></script>
 
 </body>
 

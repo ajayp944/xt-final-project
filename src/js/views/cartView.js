@@ -1,6 +1,5 @@
 import { elements } from './base';
 
-
 export const clearCart = () => {
     elements.cartItems.innerHTML = '';
 };
@@ -9,13 +8,26 @@ export const renderCartItems = cartItems => {
     let markup = ``;
     let totalPrice = 0;
     if (cartItems.length <= 0) {
+        elements.cartEmpty.style.display = 'block';
+        elements.cartItems.style.display = 'none';
         markup = `<div class="cart-empty__box">
-            <h3>NO Items in the cart</h3>
-            <p> Your favorite items are just a click away.
-        </div>`;
-        elements.cartItems.insertAdjacentHTML('beforeend', markup);
-        document.querySelector('.checkout-box').style.display = 'none';
+                    <div class="cart-empty__content">
+                        <h3>No items in your cart</h3>
+                        <p>Your favourite items just a click away.</p>
+                    </div>
+                </div>
+                <div class="checkout">
+                    <div class="checkout-box ">
+                    <a class="btn btn--pink btn-shopping" href="product.html">
+                        Start Shopping
+                    </a>
+                    </div>
+                </div>`;
+        elements.cartEmpty.innerHTML = markup;
     } else {
+        elements.cartEmpty.style.display = 'none';
+        elements.cartItems.style.display = 'block';
+        
         cartItems.forEach(element => {
             markup = `<div class="cart-items__box">
                 <div class="cart-items__left">
@@ -44,28 +56,32 @@ export const renderCartItems = cartItems => {
             totalPrice = totalPrice + (parseInt(element.count) * parseInt(element.price));
 
         });
+
+        let footerSection = `
+        <div class="cart__footer">
+            <div class="cart__footer--img" class="">
+            <img src="./static/images/lowest-price.png" alt="Footer Logo">
+            </div>
+            <div class="cart__footer--content">
+            <p>You can find it cheaper any where.</p>
+            </div>
+        </div>
+
+        <div class="checkout">
+            <div class="checkout-box">
+            <p class="checkout-box__description">
+                Promo code can be applied on payment page
+            </p>
+            <button class="btn btn--pink btn-cart">
+                <span>
+                Proceed to Checkout
+                </span>
+                <span class="checkout__totalPrice">
+                Rs. ${totalPrice} &nbsp; >
+                </span>
+            </button>
+            </div>
+        </div>`;
+        elements.cartItems.insertAdjacentHTML('beforeend', footerSection);
     }
-    elements.checkoutTotalPrice.innerHTML = totalPrice + ' >';
-
-    // cart-items
-
-    // const markup = `
-    //     <li>
-    //         <a class="likes__link" href="#${like.id}">
-    //             <figure class="likes__fig">
-    //                 <img src="${like.img}" alt="${like.title}">
-    //             </figure>
-    //             <div class="likes__data">
-    //                 <h4 class="likes__name">${limitRecipeTitle(like.title)}</h4>
-    //                 <p class="likes__author">${like.author}</p>
-    //             </div>
-    //         </a>
-    //     </li>
-    // `;
-    // elements.likesList.insertAdjacentHTML('beforeend', markup);
 };
-
-export const deleteLike = id => {
-    const el = document.querySelector(`.likes__link[href*="${id}"]`).parentElement;
-    if (el) el.parentElement.removeChild(el);
-}
