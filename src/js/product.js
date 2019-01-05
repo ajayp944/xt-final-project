@@ -171,5 +171,5 @@ const controlProductCart = async (prId, type) => {
 
 const cartItems = () => {
     cartView.clearCart();
-    cartView.renderCartItems(pState.cart.cartItems);
+    cartView.renderCartItems(JSON.parse(localStorage.getItem('cartItem')));
 };

@@ -31,7 +31,7 @@ const controlCartItems = () => {
 const renderCartItems = () => {
     cartView.clearCart();
     cState.cart.getNumcartItem();
-    cartView.renderCartItems(cState.cart.cartItems);
+    cartView.renderCartItems(JSON.parse(localStorage.getItem('cartItem')));
 };
 
 export const controlProductCart = async (prId, type) => {

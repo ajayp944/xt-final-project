@@ -9,58 +9,49 @@ export default class Cart {
 
     addToCart(id, name, price, imageURL, stock, count, type = 'add') {
         const cartItem = { id, name, price, imageURL, stock, count };
-
+        let cartLocalCartItems = JSON.parse(localStorage.getItem('cartItem')) ? JSON.parse(localStorage.getItem('cartItem')) : [];
         if (this.isCart(id)) {
 
-            const index = this.cartItems.findIndex(el => el.id === id);
+            const index = cartLocalCartItems.findIndex(el => el.id === id);
 
-            if (stock <= this.cartItems[index].count && type == 'add') {
+            if (stock <= cartLocalCartItems[index].count && type == 'add') {
                 alert(`You can maximum add ${stock} item in your cart`);
                 return false;
             }
             if (type === 'remove') {
-                this.cartItems[index].count -= 1;
+                cartLocalCartItems[index].count -= 1;
             } else {
-                this.cartItems[index].count += 1;
+                cartLocalCartItems[index].count += 1;
             }
-            if (this.cartItems[index].count == 0) {
-                this.cartItems.splice(index, 1);
+            if (cartLocalCartItems[index].count == 0) {
+                cartLocalCartItems.splice(index, 1);
             }
         } else {
-            this.cartItems.push(cartItem);
+            console.log(cartLocalCartItems);
+            cartLocalCartItems.push(cartItem);
         }
 
         let tmpCartCount = 0;
 
         // Cart Count
-        const cartCount = this.cartItems.forEach((curr) => {
+        cartLocalCartItems.forEach((curr) => {
             tmpCartCount = tmpCartCount + curr.count;
         });
-        console.log(this.cartItems);
 
-        console.log(tmpCartCount);
         console.log(localStorage.getItem('cartCount'));
-
-        this.cartCount = parseInt(this.cartCount) + (tmpCartCount - localStorage.getItem('cartCount'));
-
-        console.log(this.cartCount);
-
+        let c = 0;
+        c = parseInt(localStorage.getItem('cartCount')) + (tmpCartCount - localStorage.getItem('cartCount'));
         // Perist data in localStorage
-        this.persistData();
-
-        return cartItem;
-    }
-
-    deleteCart(id) {
-        const index = this.cartItems.findIndex(el => el.id === id);
-        this.cartItems.splice(index, 1);
-
-        // Perist data in localStorage
-        this.persistData();
+        this.persistData(cartLocalCartItems, c);
+        return true;
     }
 
     isCart(id) {
-        return this.cartItems.findIndex(el => el.id === id) !== -1;
+        if (JSON.parse(localStorage.getItem('cartItem'))) {
+            return JSON.parse(localStorage.getItem('cartItem')).findIndex(el => el.id === id) !== -1;
+        } else {
+            return false;
+        }
     }
 
 
@@ -68,9 +59,9 @@ export default class Cart {
         return this.readStorage();
     }
 
-    persistData() {
-        localStorage.setItem('cartItem', JSON.stringify(this.cartItems));
-        localStorage.setItem('cartCount', this.cartCount);
+    persistData(cartItems, cartCount) {
+        localStorage.setItem('cartItem', JSON.stringify(cartItems));
+        localStorage.setItem('cartCount', cartCount);
         this.readStorage();
     }
 
