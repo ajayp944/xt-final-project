@@ -29,26 +29,27 @@ export const renderCartItems = cartItems => {
         elements.cartItems.style.display = 'block';
         
         cartItems.forEach(element => {
-            markup = `<div class="cart-items__box">
+            markup = `
+            <div class="cart-items__box">
                 <div class="cart-items__left">
-                <img src="${element.imageURL}" alt="${element.name}" class="cart-items_img">
+                    <img src="${element.imageURL}" alt="${element.name}" class="cart-items_img">
                 </div>
                 <div class="cart-items__right">
-                <div class="cart-items__title">
-                    ${element.name}
-                </div>
-                <div class="cart-item__qty">
-                    <div class="cart-item__qty--box">
-                    <button class="cart-item__qty--btn removeQty" data-cartid="${element.id}"> – </button>
-                    <input type="text" value="${element.count}" class="cart-item__qty--input" readonly>
-                    <button class="cart-item__qty--btn addQty" data-cartid="${element.id}"> + </button>
-                    <span class="cart-item__qty--price"> 
-                        &nbsp; x    &nbsp; Rs.${element.price}
-                        </span>
+                    <div class="cart-items__title">
+                        ${element.name}
                     </div>
+                    <div class="cart-item__qty">
+                        <div class="cart-item__qty--box">
+                            <button class="cart-item__qty--btn removeQty" data-cartid="${element.id}"> – </button>
+                            <input type="text" id="qty-${element.id}" value="${element.count}" class="cart-item__qty--input" readonly>
+                            <label for="qty-${element.id}" class="display-none"> ${element.count} item added in ${element.name} cart</label>
+                            <button class="cart-item__qty--btn addQty" data-cartid="${element.id}"> + </button>
+                            <span class="cart-item__qty--price"> 
+                                &nbsp; x    &nbsp; Rs.${element.price}
+                            </span>
+                        </div>
                     <div>
                     RS.${parseInt(element.count) * parseInt(element.price)}
-                    </div>
                 </div>
             </div>`
             elements.cartItems.insertAdjacentHTML('beforeend', markup);

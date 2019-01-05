@@ -40,6 +40,9 @@ ul {
 	max-width: 80%;
 	margin: auto 10%;
 }
+.display-none{
+	display: none;
+}
 
 /************************************************************
 *	Header
