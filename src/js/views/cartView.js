@@ -7,7 +7,7 @@ export const clearCart = () => {
 export const renderCartItems = cartItems => {
     let markup = ``;
     let totalPrice = 0;
-    if (cartItems.length <= 0) {
+    if (!cartItems || cartItems.length <= 0) {
         elements.cartEmpty.style.display = 'block';
         elements.cartItems.style.display = 'none';
         markup = `<div class="cart-empty__box">

@@ -77,7 +77,7 @@ export default class Cart {
 
         const resultsArr = Array.from(elements.cartCountAll);
         resultsArr.forEach(el => {
-            el.innerHTML = cartCount;
+            el.innerHTML = cartCount ? cartCount : 0;
         });
     }
 }
