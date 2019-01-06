@@ -40,7 +40,8 @@ ul {
 	max-width: 80%;
 	margin: auto 10%;
 }
-.display-none{
+
+.display-none {
 	display: none;
 }
 
@@ -573,9 +574,11 @@ ul {
 	-ms-flex-direction: column;
 	flex-basis: 45%;
 }
-.login-heading__description{
+
+.login-heading__description {
 	font-size: 120%;
 }
+
 .form__box {
 	position: relative;
 	margin-bottom: 0;
@@ -583,11 +586,12 @@ ul {
 	margin-bottom: 20px;
 }
 
-
 .form__box--label {
 	font-size: 130%;
 	position: absolute;
 	top: 50%;
+	width: 100%;
+	left: 0;
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -612,8 +616,7 @@ ul {
 	outline: none;
 }
 
-.form__box--input:valid~.form__box--label,
-.form__box--input:focus~.form__box--label {
+.form__box--input:valid~.form__box--label, .form__box--input:focus~.form__box--label {
 	font-size: .85em;
 	top: 20%;
 	color: #18bc9c;
