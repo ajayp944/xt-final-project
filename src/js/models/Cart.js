@@ -39,7 +39,7 @@ export default class Cart {
         });
 
         let c = 0;
-        c = parseInt(localStorage.getItem('cartCount')) + (tmpCartCount - localStorage.getItem('cartCount'));
+        c = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) + (tmpCartCount - localStorage.getItem('cartCount')) : tmpCartCount;
         // Perist data in localStorage
         this.persistData(cartLocalCartItems, c);
         return true;
