@@ -5,7 +5,7 @@ export default class Carousel {
     constructor() {
 
     }
-
+    // http request for banner list
     async getResults() {
         try {
             const res = await axios(`${proxy}${apiurl}banners`);

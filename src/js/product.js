@@ -1,11 +1,8 @@
 import Product from './models/Product';
 import * as productView from './views/productView';
-
 import Category from './models/Category';
 import * as categoryView from './views/categoryView';
-
 import { elements } from './views/base';
-
 import Cart from './models/Cart';
 import * as cartView from './views/cartView';
 
@@ -14,7 +11,6 @@ import * as cartView from './views/cartView';
  * - Category object
  */
 const pState = {};
-
 
 /** 
  * Category CONTROLLER
@@ -43,7 +39,7 @@ const controlProduct = async () => {
 
     const filterKey = window.location.hash.replace('#', '');
 
-    // 1) New Carousel object and add to state
+    // 1) New Product object and add to state
     pState.product = new Product();
 
     try {
@@ -60,6 +56,43 @@ const controlProduct = async () => {
     }
 }
 
+// Prodcut add To Cart
+
+const controlProductCart = async (prId, type) => {
+
+    try {
+
+        // 1) Http request to get cart success response
+
+        await pState.product.addToCart();
+
+        if (pState.product.result.response === "Success") {
+
+            const index = pState.prductsArr.findIndex(el => el.id === prId);
+
+            const product = pState.prductsArr[index];
+            // 2) Add cart item in localstorage
+            pState.cart.addToCart(
+                product.id,
+                product.name,
+                product.price,
+                product.imageURL,
+                product.stock,
+                1,
+                type
+            );
+
+            // 3) Get Cart Items
+            pState.cart.getNumcartItem();
+
+        }
+
+    } catch (err) {
+        console.log(err);
+
+    }
+}
+
 // On window load get data
 window.addEventListener('load', () => {
 
@@ -70,7 +103,6 @@ window.addEventListener('load', () => {
     controlCategory();
 
     //Cart Items
-
     controlCartItems();
 
 
@@ -85,6 +117,7 @@ window.addEventListener("hashchange", (e) => {
     if (pState.category) categoryView.highlightSelected(hashKey);
 });
 
+// Category Change throught list
 
 elements.mMenuNav.addEventListener('click', e => {
 
@@ -96,6 +129,8 @@ elements.mMenuNav.addEventListener('click', e => {
         }
     }
 });
+
+// Category Change throught selectbox
 
 document.querySelector('#category-list').addEventListener('change', () => {
     location.hash = document.querySelector('#category-list').value;
@@ -112,63 +147,21 @@ elements.productsContainer.addEventListener('click', e => {
     }
 });
 
-
+// Cart 
 const controlCartItems = () => {
 
+    // 1) New Cart object and add to state
     pState.cart = new Cart();
 
+    // Get Cart Value
     const cartList = pState.cart.getNumcartItem();
 
+    // Render cart item in box.
     cartItems();
 
 }
 
-// Prodcut add To Cart
-
-
-const controlProductCart = async (prId, type) => {
-
-    try {
-
-        // 1) Prdoucts List
-
-        const products = pState.product.result;
-
-        //TODO remove comment
-        // 2) Get Carousel lsit 
-        // await pState.product.addToCart();
-
-        // if (pState.product.result.response === "Success") {
-        // productView.addToCart(prId, products);
-
-
-        const index = products.findIndex(el => el.id === prId);
-
-        const product = products[index];
-
-        pState.cart.addToCart(
-            product.id,
-            product.name,
-            product.price,
-            product.imageURL,
-            product.stock,
-            1,
-            type
-        );
-
-        pState.cart.getNumcartItem();
-
-        // }
-
-    } catch (err) {
-        console.log(err);
-
-    }
-}
-
-
-//Cart
-
+//Cart Item render
 const cartItems = () => {
     cartView.clearCart();
     cartView.renderCartItems(JSON.parse(localStorage.getItem('cartItem')));

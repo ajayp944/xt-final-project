@@ -1,12 +1,13 @@
 import { elements } from "../views/base";
 
+//default
 export default class Cart {
     constructor() {
         this.cartItems = [];
         this.cartCount = 0;
     }
 
-
+    //add product in cart
     addToCart(id, name, price, imageURL, stock, count, type = 'add') {
         const cartItem = { id, name, price, imageURL, stock, count };
         let cartLocalCartItems = JSON.parse(localStorage.getItem('cartItem')) ? JSON.parse(localStorage.getItem('cartItem')) : [];
@@ -27,7 +28,6 @@ export default class Cart {
                 cartLocalCartItems.splice(index, 1);
             }
         } else {
-            console.log(cartLocalCartItems);
             cartLocalCartItems.push(cartItem);
         }
 
@@ -38,7 +38,6 @@ export default class Cart {
             tmpCartCount = tmpCartCount + curr.count;
         });
 
-        console.log(localStorage.getItem('cartCount'));
         let c = 0;
         c = parseInt(localStorage.getItem('cartCount')) + (tmpCartCount - localStorage.getItem('cartCount'));
         // Perist data in localStorage
@@ -46,6 +45,7 @@ export default class Cart {
         return true;
     }
 
+    //Check product in cart
     isCart(id) {
         if (JSON.parse(localStorage.getItem('cartItem'))) {
             return JSON.parse(localStorage.getItem('cartItem')).findIndex(el => el.id === id) !== -1;
@@ -54,17 +54,19 @@ export default class Cart {
         }
     }
 
-
+    //Get Cart Item
     getNumcartItem() {
         return this.readStorage();
     }
 
+    //Set data in cart
     persistData(cartItems, cartCount) {
         localStorage.setItem('cartItem', JSON.stringify(cartItems));
         localStorage.setItem('cartCount', cartCount);
         this.readStorage();
     }
 
+    //store item in cart
     readStorage() {
 
         // Restoring cartItem from the localStorage
@@ -75,6 +77,7 @@ export default class Cart {
         const cartCount = localStorage.getItem('cartCount');
         if (cartCount) this.cartCount = cartCount;
 
+        //render cart count
         const resultsArr = Array.from(elements.cartCountAll);
         resultsArr.forEach(el => {
             el.innerHTML = cartCount ? cartCount : 0;

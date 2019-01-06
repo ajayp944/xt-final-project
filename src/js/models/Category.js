@@ -5,7 +5,7 @@ export default class Category {
     constructor() {
 
     }
-
+    // hhtp request for category
     async getResults() {
         try {
             const res = await axios(`${proxy}${apiurl}categories`);

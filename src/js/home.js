@@ -1,6 +1,5 @@
 import Carousel from './models/Carousel';
 import * as carouselView from './views/carouselView';
-
 import Category from './models/Category';
 import * as categoryView from './views/categoryView';
 

@@ -6,6 +6,7 @@ export default class Product {
 
     }
 
+    // product list
     async getResults() {
         try {
             const res = await axios(`${proxy}${apiurl}products`);
@@ -15,7 +16,7 @@ export default class Product {
         }
     }
 
-    
+    // add product in cart
     async addToCart() {
         try {
             const res = await axios.post(`${proxy}${apiurl}addToCart`);

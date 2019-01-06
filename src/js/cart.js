@@ -1,14 +1,10 @@
 import { elements } from './views/base';
-
 import Cart from './models/Cart';
-
 import * as cartView from './views/cartView';
 
 let cState = {};
 
 //Cart
-
-
 // On window load get data
 window.addEventListener('load', () => {
     //Cart Items
@@ -27,17 +23,20 @@ const controlCartItems = () => {
 
 }
 
-
+//Render Cart list
 const renderCartItems = () => {
+    //Clean Cart 
     cartView.clearCart();
+    // Get Cart Item
     cState.cart.getNumcartItem();
+    // Render Cart Item
     cartView.renderCartItems(JSON.parse(localStorage.getItem('cartItem')));
 };
 
 export const controlProductCart = async (prId, type) => {
 
     try {
-        
+
         const index = cState.cart.cartItems.findIndex(el => el.id === prId);
         const product = cState.cart.cartItems[index];
 
@@ -58,8 +57,9 @@ export const controlProductCart = async (prId, type) => {
 
     }
 }
-
+//Open Cart Popup
 elements.headerUserItemsCart.addEventListener('click', e => {
+    //render cart item
     renderCartItems();
     OpenPopup();
 });
@@ -80,9 +80,11 @@ const ClosePopup = () => {
     document.querySelector('.cart__window').style.display = 'none';
 };
 
+//Manage product in cart
 
 elements.cartItems.addEventListener('click', e => {
 
+    //Remove Cart or decrease count of Item
     if (e.target.matches('.removeQty')) {
         const prId = e.target.closest('.removeQty').dataset.cartid;
         let qty = parseInt(e.target.nextElementSibling.value);
@@ -90,6 +92,7 @@ elements.cartItems.addEventListener('click', e => {
         controlProductCart(prId, 'remove');
         renderCartItems();
     }
+    //Add Cart or decrease count of Item
     if (e.target.matches('.addQty')) {
         const prId = e.target.closest('.addQty').dataset.cartid;
         let qty = parseInt(e.target.previousElementSibling.value);
